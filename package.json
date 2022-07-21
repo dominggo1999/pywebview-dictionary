@@ -1,0 +1,49 @@
+{
+  "name": "complete-dictionary",
+  "version": "0.0.0",
+  "scripts": {
+    "frontend:dev": "vite",
+    "frontend:build": "vite build",
+    "frontend:serve": "vite preview",
+    "file:server-py": ".\\venv\\Scripts\\python dev-only/devFileServer.py",
+    "file:server-js": "nodemon dev-only/devFileServer.js",
+    "webview:start": ".\\venv\\Scripts\\python backend/index.py",
+    "start": "concurrently \"npm run frontend:dev\" \"npm run webview:start\"",
+    "start:with-file": "concurrently \"npm run file:server-js\" \"npm run frontend:dev\" \"npm run webview:start\"",
+    "build:windows": ".\\venv\\Scripts\\pyinstaller build-windows.spec",
+    "pack": "npm run frontend:build && npm run build:windows"
+  },
+  "dependencies": {
+    "@mantine/hooks": "^4.2.12",
+    "html-react-parser": "^3.0.1",
+    "immer": "^9.0.12",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hook-form": "^7.30.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.0.2",
+    "short-uuid": "^4.2.0",
+    "styled-components": "^5.3.5",
+    "zustand": "^4.0.0-rc.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.3.2",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-styled-components": "^2.0.7",
+    "concurrently": "^7.2.2",
+    "cors": "^2.8.5",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-import-resolver-custom-alias": "^1.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.18",
+    "tailwindcss": "^2.2.15",
+    "twin.macro": "^2.8.2",
+    "vite": "^2.9.9"
+  }
+}
