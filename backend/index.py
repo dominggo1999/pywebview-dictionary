@@ -1,12 +1,8 @@
-from pprint import pp
-from turtle import width
 import webview
 import os
 import requests
-from bs4 import BeautifulSoup
 from scrape import google_TTS, hippoSentences, power_thesaurus_synonyms, vocab_com_definitions, indo_definitions
 from screeninfo import get_monitors
-import time
 
 
 class Api:
@@ -24,10 +20,6 @@ class Api:
 
     def get_indo_definitions(self, word):
         return indo_definitions(word)
-
-    def say_hello(self):
-        print("hello world")
-        return "hello world"
 
 
 def get_entrypoint():
@@ -65,7 +57,7 @@ if __name__ == '__main__':
 
     monitor_dimensions = get_monitors()[0].__dict__
     width = monitor_dimensions["width"] or 800
-    height = monitor_dimensions["width"] or 600
+    height = monitor_dimensions["height"] or 600
 
     window = webview.create_window(
         'Pywebview React Vite', entry_point, js_api=api, width=width, height=height)
